@@ -1,0 +1,14 @@
+.App {
+  text-align: center;
+}
+
+a {
+  margin: 1rem;
+}
+nav a {
+  color: rgba(0, 0, 0, .7);
+}
+
+nav a.active {
+  color: black;
+}
