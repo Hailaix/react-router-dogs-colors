@@ -5,7 +5,7 @@ const DogList = ({ dogs }) => {
     return (
         <div className="doglist">
             {dogs.map(dog => (
-                <Link to={`/${dog.name}`} key={dog.id}>{dog.name}</Link>
+                <Link to={`/dogs/${dog.name}`} key={dog.id}>{dog.name}</Link>
             ))}
         </div>
     );
