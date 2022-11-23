@@ -1,17 +1,16 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import './Navbar.css'
 
 function NavBar({ dogs }) {
     return (
-      <nav className="NavBar">
-        <NavLink end to="/dogs">
-          Home
+      <nav className="navbar">
+        <NavLink to="/dogs">
+          Dogs
         </NavLink>
-        {dogs.map(dog => (
-            <NavLink key={dog.id} to={`/dogs/${dog.name}`}>
-                {dog.name}
-            </NavLink>
-        ))}
+        <NavLink to="/colors">
+          Colors
+        </NavLink>
       </nav>
     );
   }

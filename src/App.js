@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import './App.css';
+import Color from './Color';
+import Colors from './Colors';
 import DogDetails from './DogDetails';
 import DogList from './DogList';
 import NavBar from './Navbar';
@@ -10,10 +12,12 @@ function App({ dogs }) {
   return (
     <div className="App">
       <BrowserRouter>
-        <NavBar dogs={dogs} />
+        <NavBar />
         <Routes>
           <Route path='/dogs' element={<DogList dogs={dogs} />} />
           <Route path='/dogs/:name' element={<DogDetails dogs={dogs} />} />
+          <Route path='/colors' element={<Colors />} />
+          <Route path='/colors/:color' element={<Color />} />
           <Route path='*' element={<Navigate to='/dogs' replace />} />
         </Routes>
       </BrowserRouter>
