@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import './App.css';
 import Color from './Color';
+import ColorForm from './ColorForm';
 import Colors from './Colors';
 import DogDetails from './DogDetails';
 import DogList from './DogList';
@@ -9,6 +10,16 @@ import NavBar from './Navbar';
 
 
 function App({ dogs }) {
+  const [colors, setColors] = useState([
+    { name: 'red', color: 'red' },
+    { name: 'blue', color: 'blue' },
+    { name: 'green', color: 'green' }
+  ]);
+
+  const addColor = (name, color) => {
+    setColors([...colors, { name, color }]);
+  }
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -16,8 +27,9 @@ function App({ dogs }) {
         <Routes>
           <Route path='/dogs' element={<DogList dogs={dogs} />} />
           <Route path='/dogs/:name' element={<DogDetails dogs={dogs} />} />
-          <Route path='/colors' element={<Colors />} />
-          <Route path='/colors/:color' element={<Color />} />
+          <Route path='/colors' element={<Colors colors={colors} />} />
+          <Route path='/colors/:colorName' element={<Color colors={colors} />} />
+          <Route path='/colors/new' element={<ColorForm addColor={addColor} />} />
           <Route path='*' element={<Navigate to='/dogs' replace />} />
         </Routes>
       </BrowserRouter>

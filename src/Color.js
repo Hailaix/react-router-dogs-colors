@@ -1,14 +1,16 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, Navigate, useParams } from "react-router-dom";
 import './Color.css';
 
-const Color = () => {
-    const { color } = useParams();
-    return (
-        <div className="color" style={{backgroundColor : color}}>
+const Color = ({ colors }) => {
+    const { colorName } = useParams();
+    const color = colors.find(c => (c.name === colorName));
+    return color ? (
+        <div className="color" style={{ backgroundColor: color.color }}>
             <Link to='/colors'>Back</Link>
         </div>
     )
+        : <Navigate to='/colors' replace />
 }
 
 export default Color;

@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import './Navbar.css'
 
-function NavBar({ dogs }) {
+function NavBar() {
     return (
       <nav className="navbar">
         <NavLink to="/dogs">
